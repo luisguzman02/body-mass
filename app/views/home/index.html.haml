@@ -1,0 +1,11 @@
+.jumbotron
+  %h1
+    Welcome to BodyMassIndex Calculator
+  - if user_signed_in?
+    %p Get ready to calculate your BMI
+    %p
+      = link_to 'Go to calculator »', new_calculator_path, class: 'btn btn-lg btn-primary', role: 'button'
+  - else
+    %p Please login to enter your data and calculate your body mass index
+    %p
+      = link_to 'Sign in »', new_user_session_path, class: 'btn btn-lg btn-primary', role: 'button'

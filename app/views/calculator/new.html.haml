@@ -1,0 +1,30 @@
+.col-md-6.col-md-offset-3
+  %h1
+    Calculate your Body Mass Index
+  = form_tag calculate_calculator_index_path, method: :post, class: 'form-horizontal' do
+    .form-group
+      = label_tag :weight, 'Weight', class: 'control-label col-sm-2'
+      .col-sm-8.input-group
+        = number_field_tag :weight, number_with_precision(@weight, precision: 2), step: '0.01', class: 'form-control'
+        .input-group-addon
+          Kg.
+
+
+    .form-group
+      = label_tag :height, 'Height', class: 'control-label col-sm-2'
+      .col-sm-8.input-group
+        = number_field_tag :height, number_with_precision(@height, precision: 2), step: '0.01', class: 'form-control'
+        .input-group-addon
+          Mt.
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = submit_tag 'Calculate', class: 'btn btn-default'
+
+
+    -# - if @bmi
+    -#   .counter
+    -#     %h3#bmi-score
+    -#       %span= @bmi
+    -#   %p
+    -#     %span#bmi-category= @category

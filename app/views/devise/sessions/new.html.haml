@@ -1,0 +1,30 @@
+.col-md-6.col-md-offset-3
+  %h2
+    Log in
+  = form_for resource, as: resource_name, url: session_path(resource_name), class: 'form-horizontal' do |f|
+    .form-group
+      = f.label :email, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.email_field :email, autofocus: true, class: 'form-control'
+      .clearfix
+
+    .form-group
+      = f.label :password, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+      .clearfix
+
+    - if devise_mapping.rememberable?
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          .checkbox
+            = f.label :remember_me do
+              = f.check_box :remember_me
+              Remember me
+        .clearfix
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit "Sign in", class: 'btn btn-default'
+
+  = render "devise/shared/links"

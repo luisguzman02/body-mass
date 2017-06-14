@@ -1,0 +1,33 @@
+.col-md-6.col-md-offset-3
+  %h2
+    Sign up
+
+  = form_for resource, as: resource_name, url: registration_path(resource_name), class: 'form-horizontal' do |f|
+    = devise_error_messages!
+
+    .form-group
+      = f.label :email, class: 'control-label col-sm-2'
+      .col-sm-8
+        = f.email_field :email, autofocus: true, class: 'form-control'
+      .clearfix
+
+    .form-group
+      = f.label :password, class: 'control-label col-sm-2'
+      .col-sm-8
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} characters minimum)
+      .clearfix
+
+    .form-group
+      = f.label :password_confirmation, class: 'control-label col-sm-2'
+      .col-sm-8
+        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+      .clearfix
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit "Sign up", class: 'btn btn-default'
+  %hr
+  = render "devise/shared/links"

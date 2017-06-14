@@ -47,9 +47,16 @@ gem 'haml'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec'
-  gem 'rspec-collection_matchers'
+  # Strategies for cleaning databases in Ruby
+  gem 'database_cleaner'
+  # Factory Girl
+  gem 'factory_girl_rails', require: false
+  gem 'rails-controller-testing'
+  # gem 'rspec'
+  # gem 'rspec-collection_matchers'
   gem 'rspec-rails'
+  # Code coverage for Ruby
+  gem 'simplecov', require: false
 end
 
 group :development do
